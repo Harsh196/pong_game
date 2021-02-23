@@ -1,0 +1,22 @@
+from turtle import Turtle
+import time
+
+
+class Paddle(Turtle):
+    def __init__(self, xcor, ycor):
+        super().__init__()
+        self.shape("square")
+        self.shapesize(stretch_wid=5, stretch_len=1)
+        time.sleep(0.1)
+        self.penup()
+        self.goto(xcor, ycor)
+
+    def up(self):
+        if self.ycor() < 260:
+            new_y = self.ycor() + 20
+            self.goto(self.xcor(), new_y)
+
+    def down(self):
+        if self.ycor() > -260:
+            new_y = self.ycor() - 20
+            self.goto(self.xcor(), new_y)
